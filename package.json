@@ -1,0 +1,21 @@
+{
+  "name": "urimai",
+  "version": "1.0.0",
+  "description": "URIMAI - Know Your Rights | Tamil Nadu Government Schemes & Reservations",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm run dev",
+    "start": "cd server && node index.js",
+    "install:all": "cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "postinstall": "cd server && npm install && cd ../client && npm install && npm run build"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

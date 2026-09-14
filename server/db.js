@@ -15,7 +15,7 @@ function convertParams(sql) {
 async function init() {
   if (HAS_PG) {
     const { Pool } = require('pg');
-    pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false }, family: 4 });
+    pool = new Pool({ connectionString: process.env.DATABASE_URL, ssl: { rejectUnauthorized: false }, family: 4, connectionTimeoutMillis: 30000 });
     pool.on('error', err => console.error('[PG] pool error:', err.message));
     await pool.query(SCHEMA_PG);
     return seed();
